@@ -2,17 +2,18 @@
 #include <iostream>
 #include <exception>
 #include <algorithm>
+#include <deque>
 
 class Span
 {
 	private:
 	std::vector<int> vector;
-	int size;
+	size_t size;
 
 	public:
 	Span() = delete;
 	Span(unsigned int N);
-	Span(const Span& copy) = default; //double check these
+	Span(const Span& copy) = default;
 	Span& operator=(const Span& src) = default; 
 	~Span() = default;
 
@@ -24,12 +25,8 @@ class Span
 	void addNumbers(It begin, It end)
 	{
 		int rangesize = std::distance(begin, end);
-		if (size < rangesize + (int)vector.size())
-			throw std::runtime_error("Cannot store more integers"); //hmm?
-		while (begin != end)
-		{
-			vector.push_back(*begin);
-			++begin;
-		}
+		if (size < rangesize + vector.size())
+			throw std::runtime_error("Cannot store more integers");
+		vector.insert(vector.end(), begin, end);
 	};
 };
