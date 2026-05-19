@@ -6,7 +6,7 @@ This repository is a compilation of smaller C++ projects where the goal was to g
 
 ## Concepts Learned
 
-- C++ syntax basics - classes, member functions, constructors
+- C++ syntax basics: classes, member functions, constructors
 - Stack vs heap allocated memory
 - Using pointers vs references
 - Orthodox Canonical Class form
